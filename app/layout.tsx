@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import CustomCursor from "@/components/mouse/mouse";
+import { ThemeProvider } from "@/components/theme-provider"
 
 import { Fragment, useEffect } from "react";
 
@@ -32,18 +33,16 @@ export default function RootLayout({
   return (
 
       <html>
-
-
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-     
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
+          >
           {children}
+        </ThemeProvider>
         </body>
-
- 
         <CustomCursor />
-
       </html>
 
   );
