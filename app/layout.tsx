@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import CustomCursor from "@/components/mouse/mouse";
-import { Fragment } from "react";
-import dynamic from "next/dynamic";
+
+import { Fragment, useEffect } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,18 +25,23 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>
+
+) {
+
   return (
 
       <html>
-   
+
 
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
+     
           {children}
         </body>
 
+ 
         <CustomCursor />
 
       </html>
